@@ -3,7 +3,7 @@ import connectDB from "./db/index.js";
 import { app } from "./app.js";
 
 dotenv.config({
-  path: ".env", // Path to the environment variables file
+  path: "./.env", // Path to the environment variables file
 });
 
 const port = process.env.PORT || 3000; // Get the port from the environment variables file or default to 3000
