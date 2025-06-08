@@ -20,7 +20,7 @@ app.use(cookieParser()); // Middleware to parse cookies
 
 app.use("/api/v1/users", userRouter);
 
-app.get("/", (req, res) => {
+app.get("/post", (req, res) => {
     res.send("Server is running");
 });
 
