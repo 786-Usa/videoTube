@@ -58,6 +58,10 @@ userSchema.pre("save", async function (next) {
 userSchema.methods.isPasswordMatched = async function (password) {
     return await bcrypt.compare(password, this.password)
 }
+console.log("REFRESH_TOKEN_SECRET:", process.env.REFRESH_TOKEN_SECRET);
+console.log("ACCESS_TOKEN_SECRET:", process.env.ACCESS_TOKEN_SECRET);
+
+
 
 userSchema.methods.GenerateAccessToken = function () {
     return jwt.sign(
@@ -80,7 +84,7 @@ userSchema.methods.GenerateRefreshToken = function () {
             //  name : this.name,
             //  email : this.email
         },
-        process.env.RERESH_TOKEN_SECRET,
+        process.env.REFRESH_TOKEN_SECRET,
         {
             expiresIn: process.env.REFRESH_TOKEN_EXPIRY
         }
